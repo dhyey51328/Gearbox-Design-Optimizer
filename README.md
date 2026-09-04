@@ -235,11 +235,13 @@ Gearbox-Design-Optimizer/
 ├── CAD/
 │   ├── GearOpt_Gearbox_Final.dwg
 │   └── screenshots/
-│       ├── gearbox_isometric.png
+│       ├── gearbox_SWisometric.png
+|       └── gearbox_SEisometric.png
 │       ├── gearbox_top.png
 │       ├── gearbox_front.png
 │       └── gearbox_xray.png
-│
+|       └── gearbox_Wireframe.png
+|        
 ├── data/
 │
 ├── Docs/
