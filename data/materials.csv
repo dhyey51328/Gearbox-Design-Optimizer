@@ -1,0 +1,4 @@
+name,yield_strength_mpa,density_kg_m3,elastic_modulus_gpa
+AISI 1020 Steel,350,7870,200
+AISI 1045 Steel,450,7850,205
+AISI 4140 Steel,655,7850,205

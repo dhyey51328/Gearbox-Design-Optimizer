@@ -1,6 +1,44 @@
 import math
 
 
+def calculate_target_ratio(input_rpm, desired_output_rpm):
+    return input_rpm / desired_output_rpm
+
+
+def calculate_input_torque(power_kw, input_rpm):
+    power_w = power_kw * 1000
+
+    angular_velocity = (
+        2 * math.pi * input_rpm
+    ) / 60
+
+    torque = power_w / angular_velocity
+
+    return torque
+
+
+def calculate_gear_pair(target_ratio, pinion_teeth):
+    gear_teeth = round(
+        target_ratio * pinion_teeth
+    )
+
+    actual_ratio = (
+        gear_teeth / pinion_teeth
+    )
+
+    ratio_error_percent = (
+        abs(actual_ratio - target_ratio)
+        / target_ratio
+    ) * 100
+
+    return {
+        "pinion_teeth": pinion_teeth,
+        "gear_teeth": gear_teeth,
+        "actual_ratio": actual_ratio,
+        "ratio_error_percent": ratio_error_percent
+    }
+
+
 def select_gear_pair(
     target_ratio,
     min_pinion_teeth=18,
@@ -13,28 +51,16 @@ def select_gear_pair(
         min_pinion_teeth,
         max_pinion_teeth + 1
     ):
-
-        gear_teeth = round(
-            target_ratio * pinion_teeth
+        design = calculate_gear_pair(
+            target_ratio,
+            pinion_teeth
         )
 
-        actual_ratio = (
-            gear_teeth / pinion_teeth
-        )
+        error = design["ratio_error_percent"]
 
-        ratio_error = abs(
-            actual_ratio - target_ratio
-        )
-
-        if ratio_error < smallest_error:
-            smallest_error = ratio_error
-
-            best_design = {
-                "pinion_teeth": pinion_teeth,
-                "gear_teeth": gear_teeth,
-                "actual_ratio": actual_ratio,
-                "ratio_error": ratio_error
-            }
+        if error < smallest_error:
+            smallest_error = error
+            best_design = design
 
     return best_design
 
@@ -70,7 +96,7 @@ def calculate_gear_geometry(
 
 
 def calculate_gear_forces(
-    torque,
+    torque_nm,
     pitch_diameter_mm,
     pressure_angle_deg=20.0
 ):
@@ -79,7 +105,7 @@ def calculate_gear_forces(
     )
 
     tangential_force = (
-        2 * torque
+        2 * torque_nm
     ) / pitch_diameter_m
 
     pressure_angle_rad = math.radians(

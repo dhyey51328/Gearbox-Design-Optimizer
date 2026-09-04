@@ -1,0 +1,42 @@
+GEAROPT OPTIMAL DESIGN
+======================
+
+Material: AISI 4140 Steel
+
+GEAR GEOMETRY
+Pinion Teeth: 21
+Gear Teeth: 184
+Module: 2.00 mm
+Face Width: 16.00 mm
+Pinion Pitch Diameter: 42.00 mm
+Gear Pitch Diameter: 368.00 mm
+Center Distance: 205.00 mm
+
+PERFORMANCE
+Gear Ratio: 8.7619:1
+Input Speed: 3500.00 RPM
+Output Speed: 399.46 RPM
+Input Torque: 13.64 N.m
+Output Torque: 115.94 N.m
+
+GEAR LOADS
+Tangential Force: 812.02 N
+Radial Force: 295.55 N
+Normal Force: 864.13 N
+
+STRENGTH
+Pinion Bending Stress: 73.06 MPa
+Gear Bending Stress: 54.17 MPa
+Minimum Gear FOS: 8.97
+
+SHAFTS
+Input Shaft Diameter: 15 mm
+Output Shaft Diameter: 17 mm
+
+BEARINGS
+Input Bearing: 6002
+Output Bearing: 6203
+Input Bearing L10 Life: 10368 hr
+Output Bearing L10 Life: 443512 hr
+
+Estimated Rotating Mass: 14.103 kg
